@@ -1,4 +1,7 @@
 
+# Render.com
+https://flask-lab2.onrender.com
+
 # Lab 2 — Expenses REST API (Flask)
 
 Базове REST API для обліку витрат з in-memory сховищем.
