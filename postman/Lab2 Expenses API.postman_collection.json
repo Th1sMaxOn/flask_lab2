@@ -1,0 +1,168 @@
+{
+  "info": {
+    "name": "Lab2 Expenses API",
+    "_postman_id": "b4d6d1b3-0e1a-4b18-9b1a-000000000001",
+    "description": "Колекція для тестування Lab2 Expenses API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/health"
+      },
+      "response": []
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Create user",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/user",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Max\"}"
+            }
+          }
+        },
+        {
+          "name": "Get user by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/user/1"
+          }
+        },
+        {
+          "name": "List users",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users"
+          }
+        },
+        {
+          "name": "Delete user",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/user/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Create category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/category",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Food\"}"
+            }
+          }
+        },
+        {
+          "name": "List categories",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/category"
+          }
+        },
+        {
+          "name": "Delete category",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/category?id=1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Records",
+      "item": [
+        {
+          "name": "Create record",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/record",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"user_id\": 1, \"category_id\": 1, \"amount\": 99.5}"
+            }
+          }
+        },
+        {
+          "name": "Get record by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/record/1"
+          }
+        },
+        {
+          "name": "Delete record",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/record/1"
+          }
+        },
+        {
+          "name": "List by user",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/record?user_id=1"
+          }
+        },
+        {
+          "name": "List by category",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/record?category_id=1"
+          }
+        },
+        {
+          "name": "List by user & category",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/record?user_id=1&category_id=1"
+          }
+        },
+        {
+          "name": "List without params (should error)",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/record"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:8080"
+    }
+  ]
+}

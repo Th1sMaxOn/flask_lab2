@@ -1,0 +1,88 @@
+{
+  "type": "PostmanFlow",
+  "version": "1.0",
+  "name": "Lab2 Minimal Flow",
+  "description": "Простий флоу: create user -> create category -> create record -> list by user",
+  "nodes": [
+    {
+      "id": "n1",
+      "type": "request",
+      "name": "Create user",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/user",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Max\"}"
+        }
+      }
+    },
+    {
+      "id": "n2",
+      "type": "request",
+      "name": "Create category",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/category",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Food\"}"
+        }
+      }
+    },
+    {
+      "id": "n3",
+      "type": "request",
+      "name": "Create record",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/record",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"user_id\": 1, \"category_id\": 1, \"amount\": 99.5}"
+        }
+      }
+    },
+    {
+      "id": "n4",
+      "type": "request",
+      "name": "List by user",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/record?user_id=1"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "n1",
+      "target": "n2"
+    },
+    {
+      "source": "n2",
+      "target": "n3"
+    },
+    {
+      "source": "n3",
+      "target": "n4"
+    }
+  ]
+}
