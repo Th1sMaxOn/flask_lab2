@@ -50,13 +50,6 @@ gunicorn app:app
 ### Health
 - **GET /health** — `{ "status": "ok" }`
 
-## Деплой на Render.com (рекомендовано)
-1. Створи репозиторій на GitHub і залий цей проєкт із кількома осмисленими комітами.
-2. На https://render.com створи **Web Service** → під’єднай репозиторій.
-3. Build command: `pip install -r requirements.txt`  
-   Start command: `gunicorn app:app`
-4. Дочекайся зеленого деплою — отримаєш **Production URL**.
-
 ## Postman
 У теці `postman/` є:
 - `Lab2 Expenses API.postman_collection.json` — колекція з усіма запитами
